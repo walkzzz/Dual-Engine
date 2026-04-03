@@ -1,100 +1,176 @@
-# Rust build output
+# ==========================
+# Rust 生态核心（优先级最高）
+# ==========================
+# 编译产物（Rust 核心目录）
 target/
 **/target/
-debug/
-release/
-*.rlib
-*.rlib.rmeta
 
-# Binaries
+# Rust 编译中间件（兜底补充）
+*.o
+*.a
+*.rlib
+*.rsp
+
+# Cargo 临时文件
+Cargo.bak
+Cargo.lock.bak
+
+# cargo vendor 依赖目录
+vendor/
+
+# rust-analyzer 缓存（Rust 开发必备）
+.rust-analyzer/
+
+# ==========================
+# 跨平台二进制文件
+# ==========================
+# Windows
 bin/*.exe
 bin/*.dll
 bin/*.pdb
-*.exe
-*.dll
+
+# Linux
+bin/*
+!bin/*.sh
 *.so
+*.so.*
+
+# macOS
 *.dylib
+*.app
+bin/*.dylib
+bin/*.dylib
 
-# Cargo lock for libraries (keep for binaries)
-# Cargo.lock
-
-# Build output
-build/
-out/
-dist/
-
-# Dependencies
-vendor/
-
-# IDE
-.idea/
+# ==========================
+# 开发工具/IDE 缓存
+# ==========================
+# VSCode
 .vscode/
+
+# JetBrains 系列（IDEA/RustRover 等）
+.idea/
+.jb_cache/
+*.iml
+
+# Vim/Neovim
 *.swp
 *.swo
 *~
-.DS_Store
-Thumbs.db
 
-# Logs
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio
+*.sln
+*.suo
+*.vcxproj
+*.user
+
+# ==========================
+# 日志/核心转储
+# ==========================
+# 基础日志
 *.log
 logs/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Test coverage
+# 日志轮转文件
+*.log.*
+*.log.gz
+*.log.bz2
+
+# 核心转储（Linux/macOS）
+core
+core.*
+
+# 崩溃报告
+crash.dmp
+
+# ==========================
+# 操作系统无关文件
+# ==========================
+# macOS
+.DS_Store
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN
+
+# Linux
+*.tmp
+.Trash-*
+.nfs*
+
+# ==========================
+# 敏感配置/密钥（核心防护）
+# ==========================
+# 保留模板，忽略实际密钥（项目专属）
+.opencode.json
+!.opencode.json.example
+
+# 通用环境变量文件
+.env
+.env.*
+!.env.example
+
+# 密钥/证书文件
+*.pem
+*.key
+*.crt
+*.pfx
+
+# ==========================
+# 数据库文件
+# ==========================
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+
+# ==========================
+# 测试/覆盖率
+# ==========================
 coverage/
+tests/tmp/
 *.gcno
 *.gcda
 tarpaulin-report.html
 
-# Environment
-.env
-.env.local
-.env.production
-
-# API Keys (keep templates only)
-.opencode.json
-!.opencode.json.example
-
-# Database
-*.db
-*.db-shm
-*.db-wal
-*.sqlite
-
-# Go build output (for opencode source)
+# ==========================
+# Go 语言相关（OpenCode 源码）
+# ==========================
 src/opencode/*.exe
 src/opencode/*.dll
 src/opencode/vendor/
 
-# Claude Code build (for claude-code source)
-src/claude-code/target/
+# ==========================
+# 其他（兜底/可选）
+# ==========================
+# 打包/分发临时文件
+*.zip
+*.tar.gz
+*.rar
 
-# Temporary files
+# 安装脚本日志
+install*.log
+
+# 临时文件
 tmp/
 temp/
 *.tmp
 *.bak
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Desktop.ini
-
-# Node (if any)
-node_modules/
-npm-debug.log
-yarn-error.log
-
-# Python (if any)
-__pycache__/
-*.py[cod]
-*$py.class
-.Python
-venv/
-.venv/
+# 构建输出
+build/
+out/
+dist/
+debug/
+release/
