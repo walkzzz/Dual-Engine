@@ -73,10 +73,8 @@ impl InputValidator {
             }
         }
 
-        // 检查编码问题
-        if !input.is_utf8() {
-            return Err(ValidationError::InvalidEncoding("输入必须是有效的 UTF-8".to_string()).into());
-        }
+        // 检查编码问题 (字符串已经是 &str，所以肯定是 UTF-8)
+        // 这个检查可以省略，因为 &str 保证是有效的 UTF-8
 
         Ok(input.to_string())
     }

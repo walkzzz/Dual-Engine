@@ -942,6 +942,7 @@ version = "0.1.0"
 dependencies = [
  "async-trait",
  "chrono",
+ "lazy_static",
  "serde",
  "serde_json",
  "thiserror",

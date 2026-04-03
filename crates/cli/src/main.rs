@@ -27,6 +27,9 @@ struct Cli {
 
     #[arg(long, default_value = "120")]
     timeout_secs: u64,
+    
+    #[arg(long, help = "API provider: moonshot, dashscope, groq")]
+    provider: Option<String>,
 }
 
 #[derive(Subcommand)]
@@ -50,6 +53,22 @@ async fn main() -> anyhow::Result<()> {
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
 
     let cli = Cli::parse();
+
+    // 根据 provider 设置环境变量
+    if let Some(provider) = &cli.provider {
+        match provider.as_str() {
+            "moonshot" => {
+                std::env::set_var("LOCAL_ENDPOINT", "https://api.moonshot.cn/v1");
+            }
+            "dashscope" => {
+                std::env::set_var("LOCAL_ENDPOINT", "https://dashscope.aliyuncs.com/compatible-mode/v1");
+            }
+            "groq" => {
+                std::env::set_var("GROQ_API_KEY", std::env::var("GROQ_API_KEY").unwrap_or_default());
+            }
+            _ => {}
+        }
+    }
 
     let manager = EngineManager::new();
 

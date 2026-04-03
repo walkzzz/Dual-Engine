@@ -112,7 +112,7 @@ pub enum ResourceError {
 pub type Result<T, E = DualEngineError> = std::result::Result<T, E>;
 
 /// 双引擎统一错误类型
-#[derive(Error, Debug, Clone)]
+#[derive(Error, Debug)]
 pub enum DualEngineError {
     #[error("引擎错误：{0}")]
     Engine(#[from] EngineError),
@@ -137,6 +137,21 @@ pub enum DualEngineError {
     
     #[error("其他错误：{0}")]
     Other(String),
+}
+
+impl Clone for DualEngineError {
+    fn clone(&self) -> Self {
+        match self {
+            DualEngineError::Engine(e) => DualEngineError::Engine(e.clone()),
+            DualEngineError::Config(e) => DualEngineError::Config(e.clone()),
+            DualEngineError::Api(e) => DualEngineError::Api(e.clone()),
+            DualEngineError::Validation(e) => DualEngineError::Validation(e.clone()),
+            DualEngineError::Resource(e) => DualEngineError::Resource(e.clone()),
+            DualEngineError::Io(e) => DualEngineError::Io(std::io::Error::new(e.kind(), e.to_string())),
+            DualEngineError::Json(e) => DualEngineError::Other(format!("JSON error: {}", e)),
+            DualEngineError::Other(msg) => DualEngineError::Other(msg.clone()),
+        }
+    }
 }
 
 impl From<&str> for DualEngineError {
