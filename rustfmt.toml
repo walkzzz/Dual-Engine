@@ -1,0 +1,51 @@
+# Rustfmt configuration for Dual-Engine
+# https://rust-lang.github.io/rustfmt/
+
+# Maximum width of each line
+max_width = 120
+
+# Ideal width of each line
+tab_spaces = 4
+
+# How to handle trailing whitespaces
+trim_trailing_whitespace = true
+
+# Insert trailing newline at end of file
+newline_style = "Unix"
+
+# Format code snippet
+format_code_in_doc_comments = true
+
+# Format strings
+format_strings = false
+
+# Format macro definitions
+format_macro_matchers = true
+format_macro_bodies = true
+
+# Use small heuristics for formatting
+use_small_heuristics = "Default"
+
+# Merge multiple imports
+imports_granularity = "Crate"
+
+# Group imports
+group_imports = "StdExternalCrate"
+
+# Reorder imports
+reorder_imports = true
+
+# Reorder modules
+reorder_modules = true
+
+# Remove nested parens
+remove_nested_parens = true
+
+# Normalize comments
+normalize_comments = false
+
+# Wrap comments
+wrap_comments = false
+
+# Edition
+edition = "2021"

@@ -1,40 +1,100 @@
+# Rust build output
+target/
+**/target/
+debug/
+release/
+*.rlib
+*.rlib.rmeta
+
 # Binaries
 bin/*.exe
 bin/*.dll
+bin/*.pdb
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Cargo lock for libraries (keep for binaries)
+# Cargo.lock
 
 # Build output
-target/
-*.o
-*.a
+build/
+out/
+dist/
 
 # Dependencies
 vendor/
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 *~
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
 logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# OS
-.DS_Store
-Thumbs.db
+# Test coverage
+coverage/
+*.gcno
+*.gcda
+tarpaulin-report.html
 
-# Config (keep templates, not actual keys)
-# .opencode.json
+# Environment
+.env
+.env.local
+.env.production
+
+# API Keys (keep templates only)
+.opencode.json
+!.opencode.json.example
 
 # Database
 *.db
 *.db-shm
 *.db-wal
+*.sqlite
 
-# Test coverage
-coverage/
+# Go build output (for opencode source)
+src/opencode/*.exe
+src/opencode/*.dll
+src/opencode/vendor/
 
-# Node modules (if any)
+# Claude Code build (for claude-code source)
+src/claude-code/target/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Node (if any)
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
