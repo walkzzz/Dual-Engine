@@ -4,10 +4,12 @@ use std::collections::HashMap;
 pub mod error;
 pub mod validator;
 pub mod rate_limiter;
+pub mod audit;
 
 pub use error::*;
 pub use validator::*;
 pub use rate_limiter::*;
+pub use audit::*;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Message {
