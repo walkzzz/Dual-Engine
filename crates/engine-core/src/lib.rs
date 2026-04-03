@@ -1,4 +1,10 @@
 pub use shared_types::{EngineRequest, EngineResponse, FinishReason, Message, Role, Tool, ToolCall, ToolResult, Usage};
+pub use shared_types::error::{EngineError as SharedEngineError, ConfigError, ApiError, ValidationError, DualEngineError};
+pub use shared_types::validator::{InputValidator, validate_prompt, sanitize_prompt};
+pub use shared_types::rate_limiter::{RateLimiter, RateLimiterStats};
+
+pub mod mock_engine;
+pub use mock_engine::*;
 
 use async_trait::async_trait;
 use shared_types::*;
