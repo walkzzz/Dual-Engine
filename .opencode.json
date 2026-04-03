@@ -1,0 +1,14 @@
+{
+  "providers": {
+    "moonshot": {
+      "apiKey": "sk-2AHag06yfVKXiLzz8CTs95gGkyBuH8PJA6mC6INQkYBTBzsb",
+      "disabled": false
+    }
+  },
+  "agents": {
+    "coder": {
+      "model": "moonshot.moonshot-v1-32k",
+      "maxTokens": 2048
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# Binaries
+bin/*.exe
+bin/*.dll
+
+# Build output
+target/
+*.o
+*.a
+
+# Dependencies
+vendor/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (keep templates, not actual keys)
+# .opencode.json
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Test coverage
+coverage/
+
+# Node modules (if any)
+node_modules/

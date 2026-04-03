@@ -1,0 +1,31 @@
+[package]
+name = "dual-engine-tui"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "dual-engine-tui"
+path = "src/main.rs"
+
+[[bin]]
+name = "det"
+path = "src/main.rs"
+
+[dependencies]
+engine-core = { path = "../engine-core" }
+engine-opencode = { path = "../engine-opencode" }
+engine-claude = { path = "../engine-claude" }
+shared-types = { path = "../shared-types" }
+ratatui = { workspace = true }
+crossterm = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true }

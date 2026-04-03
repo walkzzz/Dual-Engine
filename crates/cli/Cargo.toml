@@ -1,0 +1,28 @@
+[package]
+name = "dual-engine-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "dual-engine"
+path = "src/main.rs"
+
+[[bin]]
+name = "de"
+path = "src/main.rs"
+
+[dependencies]
+engine-core = { path = "../engine-core" }
+engine-opencode = { path = "../engine-opencode" }
+engine-claude = { path = "../engine-claude" }
+shared-types = { path = "../shared-types" }
+clap = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true }
